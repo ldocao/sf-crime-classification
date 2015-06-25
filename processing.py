@@ -19,6 +19,7 @@ def subset_one(df,category,pickup):
     """Return the subset of initial data frame for a given list of location
 
     Parameters:
+    ----------
     df: pandas data frame
         original data frame
 
@@ -35,6 +36,19 @@ def subset_one(df,category,pickup):
         
     check = is_in(df[category], pickup)
     return df[check]
+
+
+
+
+def subset_range(df,category,range):
+    """Return the subset of initial data within range of category
+    """
+    
+    minval = range[0]
+    maxval = range[1]
+    index = (df[category] >= minval) & (df[category] <= maxval)
+
+    return df.loc[index,:]
 
 
 

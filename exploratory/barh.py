@@ -6,7 +6,6 @@ import scipy
 
 
 sys.path.append("/Users/ldocao/Documents/Professionnel/Data Science/Kaggle/2015 06 SF Crime Classification/")
-
 import inputdata
 import processing
 

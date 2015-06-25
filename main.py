@@ -13,11 +13,11 @@ df = inputdata.read_zipfile(trainfile,dir=datadir)
 
 
 
+
+
 ###PROCESSING
-crime = processing.subset_one(df,"Category","WARRANTS")
+#crime = processing.subset_one(df,"Category","WARRANTS")
 
-
-pdb.set_trace()
 
 mapdata = np.loadtxt(datadir+"sf_map_copyright_openstreetmap_contributors.txt")
 lon_lat_box = (-122.5247, -122.3366, 37.699, 37.8299)
