@@ -29,13 +29,13 @@ lon_lat_box = (-122.5247, -122.3366, 37.699, 37.8299)
 clipsize = [[-122.5247, -122.3366],[ 37.699, 37.8299]]
 
 
+
+###PROCESSING
+##evaluating kde
 coord = alldf.loc[:,["X","Y"]]
 coord = coord.loc[0:1000,:]
 coord= np.array(coord).transpose()
 kernel = scipy.stats.gaussian_kde(coord)
-
-
-
 
 minx=min(clipsize[0])
 maxx=max(clipsize[0])
@@ -43,7 +43,6 @@ miny=min(clipsize[1])
 maxy=max(clipsize[1])
 nx=500 #number of xgrid points
 ny=500 #number of ygrid points
-
 x_grid = np.arange(minx,maxx, abs(minx-maxx)/nx) #x-axis
 y_grid = np.arange(miny,maxy, abs(miny-maxy)/ny) #y-axis
 x,y = np.meshgrid(x_grid,y_grid) #create each node of the grid for evaluate
@@ -52,20 +51,24 @@ kde = kernel(grid_coords.T) #evaluate kernel at each point
 z = kde.reshape(np.size(x_grid),np.size(y_grid)) #reshape it to intuitive grid
 
 
-
+### PLOT
 plt.figure()
 plt.imshow(mapdata, cmap=plt.get_cmap('gray'), extent=lon_lat_box)
 plt.imshow(z,alpha=0.4,cmap="Blues",extent=lon_lat_box)
 plt.show()
 
+
+
+
+
+
+
+
+
 # ###PROCESSING
-# for subset in np.unique(df.Category == "Category"):
-
-    
+# for subset in np.unique(df.Category == "Category"):    
 #     z = np.ones()
-
 #     plt.figure()
-
 #     ##make the plot
 #     plt.savefig("./figures/kde_"+subset+".pdf")
 
