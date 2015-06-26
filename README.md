@@ -18,3 +18,5 @@ I can make a function which plot for a given time the density of crime for a giv
 
 
 make filter function to subset by time, location, type.
+
+comparer avec carte housing price et population density.

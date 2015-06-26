@@ -8,7 +8,7 @@ import pdb
 
 
 trainfile = "train"
-datadir="./data/"
+datadir="/Users/ldocao/Documents/Professionnel/Data Science/Kaggle/2015 06 SF Crime Classification/data/"
 df = inputdata.read_zipfile(trainfile,dir=datadir)
 
 
