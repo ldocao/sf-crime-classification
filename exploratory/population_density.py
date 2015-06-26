@@ -51,10 +51,12 @@ for shape in sf.shapeRecords(): #loop over polygon
 ##get the population density as color code
 pop_density = [rec[3] for rec in sf.records()]
 pop_density = np.array(map(float,pop_density)) #convert to float
-colors = pop_density/max(pop_density) #normalize color
+colors = pop_density #use density as color scale
 
 ##now plot    
 p = PatchCollection(patches, cmap="Blues")
 p.set_array(colors)
 ax.add_collection(p)
-plt.show()
+cbar = plt.colorbar(p)
+cbar.set_label("Population per square miles", rotation=270,labelpad=20)
+plt.savefig("./figures/population_density.pdf")
